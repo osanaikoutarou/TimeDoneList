@@ -98,13 +98,13 @@ class SingleViewController: UIViewController {
             weekSum.append(s)
         }
 
-        labelComponents.append(LabelCreator.LabelComponent(text: "Week:", font: UIFont.boldSystemFont(ofSize: 14), textColor: .black))
+        labelComponents.append(LabelCreator.LabelComponent(text: "Week:", font: UIFont.boldSystemFont(ofSize: 13), textColor: .black))
 
         for (i, e) in weekSum.enumerated() {
             if e == 0 {
                 continue
             }
-            let l = LabelCreator.LabelComponent(text: "\(e) ", font: UIFont.boldSystemFont(ofSize: 14), textColor: colorPatterns[i])
+            let l = LabelCreator.LabelComponent(text: "\(e) ", font: UIFont.boldSystemFont(ofSize: 13), textColor: colorPatterns[i])
             labelComponents.append(l)
         }
 
@@ -114,17 +114,18 @@ class SingleViewController: UIViewController {
 
         // 月
 
-        labelComponents.append(LabelCreator.LabelComponent(text: "Month:", font: UIFont.boldSystemFont(ofSize: 14), textColor: .black))
+        labelComponents.append(LabelCreator.LabelComponent(text: "4.3週:", font: UIFont.boldSystemFont(ofSize: 13), textColor: .black))
 
         for (i, e) in weekSum.enumerated() {
             if e == 0 {
                 continue
             }
-            let l = LabelCreator.LabelComponent(text: "\(e*4) ", font: UIFont.boldSystemFont(ofSize: 14), textColor: colorPatterns[i])
+            let v = Double(Int(Double(e)*43))/10.0
+            let l = LabelCreator.LabelComponent(text: "\(v) ", font: UIFont.boldSystemFont(ofSize: 13), textColor: colorPatterns[i])
             labelComponents.append(l)
         }
 
-        let s2 = weekSum.reduce(0, {$0 + $1}) * 4
+        let s2 = Double(weekSum.reduce(0, {$0 + $1}) * 43)/10.0
 
         labelComponents.append(LabelCreator.LabelComponent(text: " 合計:\(s2)時間\n", font: UIFont.boldSystemFont(ofSize: 14), textColor: .black))
 
